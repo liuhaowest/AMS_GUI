@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.student.dao.mapper.StGradeTeaMapper">
+    <select id="getCourseByMajor" resultType="StGradeTea">
+        SELECT tea.*
+        FROM st_grade_tea tea,
+             st_course cou
+        WHERE tea.cou_id = cou.id
+          AND cou.major = #{major}
+          AND tea.tea_id = #{teaId}
+    </select>
+    <select id="getRebuildCourse" resultType="StCourse">
+        SELECT c.*
+        FROM st_grade_stu s
+        LEFT JOIN st_grade_tea t ON s.room_id=t.class_room_id
+        LEFT JOIN st_course c ON t.cou_id=c.id
+        WHERE s.stu_id = #{stuId} AND s.grade &lt;60
+    </select>
+
+</mapper>

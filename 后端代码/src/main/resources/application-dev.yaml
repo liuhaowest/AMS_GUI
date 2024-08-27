@@ -1,0 +1,63 @@
+server:
+  port: 8082
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/springboot_student?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&nullCatalogMeansCurrent=true
+    username: root
+    password: 123456
+
+  #redis配置
+  redis:
+    # 地址
+    host: 127.0.0.1
+    # 端口号
+    port: 6379
+    # 密码
+    password:
+    # 超时时间，单位毫秒
+    timeout: 3000
+    # 数据库编号
+    database: 0
+    # 配置lettuce
+    lettuce:
+      pool:
+        # 连接池中的最小空闲连接
+        min-idle: 1
+        # 连接池中的最大空闲连接
+        max-idle: 6
+        # 连接池最大连接数（使用负值表示没有限制,不要配置过大，否则可能会影响redis的性能）
+        max-active: 10
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）；单位毫秒
+        max-wait: 1000
+      #关闭超时时间；单位毫秒
+      shutdown-timeout: 200
+  #发送验证邮件
+  mail:
+    protocol: smtp
+    host: smtp.163.com
+    port: 25
+    #自己邮箱和协议密码
+    username: 111
+    password: 222
+    default-encoding: utf-8
+# mybatis-plus配置包别名
+mybatis-plus:
+  type-aliases-package: com.student.dao.entity
+  configuration:
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-enums-package: com.student.dao.myenum
+#用户头像上传路径
+stuImgFile: "D:/MyProject/person/sideline/55成绩管理系统/student-score-master/images/student/"
+#课程背景图片上传与回显路径
+couImgFile: "D:/MyProject/person/sideline/55成绩管理系统/student-score-master/images/course/"
+#学生试卷上传与回显路径
+gradeImgFile: "D:/MyProject/person/sideline/55成绩管理系统/student-score-master/images/grade/"
+
+thread:
+  size: 6

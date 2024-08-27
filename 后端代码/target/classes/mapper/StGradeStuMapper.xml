@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.student.dao.mapper.StGradeStuMapper">
+    <select id="getStuList" resultType="StUser">
+        SELECT stu.*
+        FROM st_user stu,st_grade_stu gra
+        WHERE gra.stu_id=stu.id
+          AND gra.room_id=#{roomId}
+    </select>
+</mapper>

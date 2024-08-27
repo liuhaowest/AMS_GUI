@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${confirm}"></title>
+</head>
+<body>
+<p>这是由李同学的毕设-学生成绩管理系统发送的邮件：请不要泄露你的激活码（如果您未注册，请忽略）</p>
+</br>
+<p th:text="你的激活码为 +${confirm}">你的激活码为：${}</p>
+</body>
+</html>
